@@ -1,54 +1,60 @@
 <script lang="ts" setup>
     import { ref } from 'vue'
 
-    const btnText = ref('Enviar')
+    const btnSending= ref(false)
     const btnClass = "w-full bg-lime-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-lime-600 hover:cursor-pointer transition duration-300"
     const sendingClass = "w-full bg-lime-600 text-white font-bold py-2 px-4 rounded-lg hover:cursor-wait opacity-90"
 
-    function handleSubmit(formEvent: HTMLFormElement) {
+    function handleSubmit(formEvent: Event) {
         formEvent.preventDefault()
-        btnText.value = 'Enviando...'
-        const formData = {}
-        // TODO: finish function
+        btnSending.value = !btnSending.value
+        const form = formEvent.target as HTMLFormElement
+        const formData = new FormData(form)
+        console.log(Object.fromEntries(formData.entries()))
+        // TODO: finish function to send form as an email
+        btnSending.value = !btnSending.value
     }
 </script>
 
 <template>
 	<div>
-        <section class="flex flex-col items-center justify-center h-auto p-6">
-            <form action="" method="POST" class="w-full max-w-md bg-white shadow-md rounded-lg p-8">
+        <section class="w-full h-full flex flex-col items-center justify-center">
+            <form
+                action=""
+                method="POST"
+                class="h-full w-full max-w-md bg-white shadow-md rounded-lg p-8"
+                @submit="handleSubmit">
 				<input
-                    id="contact-name"
-                    type="email"
-                    name="contact-name"
+                    id="name"
+                    type="text"
+                    name="name"
                     placeholder="Nombre*"
                     class="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500"
                     required>
                 <input
-                    id="contact-email"
+                    id="email"
                     type="email"
-                    name="contact-email"
+                    name="email"
                     placeholder="Email*"
                     class="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500"
                     required>
                 <input
-                    id="contact-phone"
+                    id="phone"
                     type="telephone"
-                    name="contact-phone"
+                    name="phone"
                     placeholder="Telefono"
                     class="w-full mb-6 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500"
                     >
                 <textarea
-                    id="contact-message"
-                    name="contact-message"
+                    id="message"
+                    name="message"
                     placeholder="Mensaje*"
                     class="w-full mb-6 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500"
                     required />
                 <button
-                    :class="btnText === 'Enviar' ? btnClass : sendingClass"
-                    type="submit"
-                    @click="handleSubmit">
-                        {{ btnText }}
+                    :class="btnSending ? sendingClass : btnClass"
+                    type="submit">
+                        {{ btnSending ? 'Enviando...' : 'Enviar' }}
                 </button>
             </form>
         </section>
