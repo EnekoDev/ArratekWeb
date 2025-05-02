@@ -31,6 +31,8 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/stash": "^1.2.2",
     "@tailwindcss/postcss": "^4.1.4"
   }
 }
