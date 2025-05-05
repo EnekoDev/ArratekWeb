@@ -9,7 +9,8 @@
             { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
         ],
         link: [
-            { rel: 'icon', type: 'image/png', href: '/arratek-logo.png' }
+            { rel: 'icon', type: 'image/png', href: '/arratek-logo.png' },
+            { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap' }
         ]
     })
 </script>
@@ -25,5 +26,7 @@
 
 
 <style>
-
+    * {
+        font-family: 'Montserrat', sans-serif;
+    }
 </style>

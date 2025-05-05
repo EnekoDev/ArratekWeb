@@ -8,7 +8,7 @@
 	<section id="contacto" class="w-full h-screen">
 		<article class="w-full h-full flex justify-center items-center gap-12">
 			<div class="w-1/2 flex flex-col justify-center items-center gap-12 p-12">
-				<h2 class="text-4xl text-white text-center">Si necesita algo, estamos a su disposición</h2>
+				<h2 class="text-4xl text-white text-center">Si necesitas algo, estamos a tu disposición</h2>
 				<div :class="contactElement">
 					<Icon icon="solar:phone-linear" width="2em" height="2em"  style="color: #7ccf00" />
 					<h3>Teléfono:</h3>
@@ -23,7 +23,8 @@
 					<a href="mailto:arratek@arratek.com" target="_blank">arratek@arratek.com</a>
 				</div>
 				<div :class="contactElement">
-					<Icon icon="stash:clock" width="2em" height="2em"  style="color: #7ccf00" />					<h3>Horario:</h3>
+					<Icon icon="stash:clock" width="2em" height="2em"  style="color: #7ccf00" />
+					<h3>Horario:</h3>
 					<div>
 						<p >Lunes a Viernes</p>
 						<p>10:00-14:00 16:30-19:30</p>
@@ -38,13 +39,13 @@
 					</a>
 				</div>
 			</div>
-			<div class="w-1/2 h-full flex flex-col justify-center items-center gap-12 p-12">
-				<h2 class="text-4xl text-white text-center">Si tiene alguna sugerencia, no dude en ponerse en contacto con nosotros</h2>
+			<div class="w-1/2 h-2/3 flex flex-col justify-center items-center gap-12 p-12">
+				<h2 class="text-4xl text-white text-center">Si tienes alguna sugerencia, no dudes en ponerte en contacto con nosotros</h2>
 				<ContactForm />
 			</div>
 		</article>
-		<article>
-			<!-- TODO: Google Maps widget with the location of the store -->
+		<article class="w-full h-1/3 flex justify-center items-center">
+			<LeafletMap />
 		</article>
 	</section>
 </template>

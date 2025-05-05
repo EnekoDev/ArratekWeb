@@ -1,50 +1,66 @@
 <script setup lang="ts">
-    const listStyle:string = "text-xl mr-10 leading-relaxed"
-    const listTitle:string = "text-lime-500 font-semibold"
-    const listText:string = "text-stone-300 mt-2"
+    const listStyle = "flex items-start gap-4 text-xl leading-tight mt-6";
+    const listTitle = "text-lime-500 font-bold uppercase";
+    const listText = "text-stone-300 mt-2 ml-10 text-base";
 </script>
 
 <template>
     <section id="asesoramiento-informatico" class="w-full h-screen flex gap-20">
-        <div class="w-4/5 bg-white">
-            <div class="h-3/6 bg-white" /> <!-- TODO: this div will have a background img -->
-            <div class="h-2/6 flex">
-                <div class="w-5/7 flex flex-col justify-center gap-8 px-12 -mt-18">
-                    <div>
-                        <div class="flex items-center gap-4">
-                            <h5 class="text-5xl">asesoramiento</h5>
-                            <img src="#" alt="icono bocadillo con exclamacion">
+        <div class="h-full w-4/5 text-white">
+            <div class="relative h-full w-full">
+                <div class="absolute inset-0 h-full bg-cover bg-center bg-no-repeat bg-[url('/pexels-athena-2582936.jpg')] z-0 opacity-30"></div>
+                <div class="relative h-full z-10">
+                    <div class="h-full flex">
+                        <div class="w-4/7 flex flex-col justify-center gap-8 px-12">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h5 class="text-5xl">asesoramiento</h5>
+                                    <img src="/icono-bocadillo.png" alt="icono bocadillo con exclamacion">
+                                </div>
+                                <h4 class="text-lime-500 text-6xl font-semibold pb-4 -mt-12">INFORMÁTICO</h4>
+                                <h5 class="text-3xl font-medium pt-4">Que la <span>tecnología</span></h5>
+                                <h5 class="text-3xl font-medium">no frene tu <span>negocio</span></h5>
+                            </div>
                         </div>
-                        <h4 class="text-lime-500 text-6xl font-semibold pb-4">INFORMÁTICO</h4>
-                        <h5 class="text-3xl font-medium pt-4">Que la <span>tecnología</span> no frene tu <span>negocio</span></h5>
+                        <div class="w-3/7 flex flex-col justify-center px-12 gap-8">
+                            <h4 class="text-xl font-bold text-lime-500">
+                                SOMOS REFERENCIA EN EL ACOMPAÑAMIENTO Y DESARROLLO DE NUEV@S EMPRENDEDOR@S OFRECIENDO EL APOYO TECNOLÓGICO QUE NECESITAN
+                            </h4>
+                            <p class="text-lg">
+                                Haber recorrido un camino similar, nos hace conocer muy de cerca los <span>retos</span> a los que te enfrentas y tener <span>experiencia</span> en cómo superarlos
+                            </p>
+                            <h4 class="text-2xl font-bold">¡NOS ENCANTA <span>ESCUCHAR</span> NUEVAS IDEAS DE <span>NEGOCIO</span>!</h4>
+                        </div>
                     </div>
-                </div>
-                <div class="w-2/7 flex flex-col px-12 -mt-18 gap-8">
-                    <h4 class="text-xl font-semibold text-lime-500">SOMOS REFERENCIA EN EL ACOMPAÑAMIENTO Y DESARROLLO DE NUEV@S EMPRENDEDOR@S OFRECIENDO EL APOYO TECNOLÓGICO QUE NECESITAN</h4>
-                    <p class="text-lg">Haber recorrido un camino similar, nos hace conocer muy de cerca los <span>retos</span> a los que te enfrentas y tener <span>experiencia</span> en cómo superarlos</p>
-                    <h4 class="text-2xl font-bold">¡NOS ENCANTA <span>ESCUCHAR</span> NUEVAS IDEAS DE <span>NEGOCIO</span>!</h4>
                 </div>
             </div>
         </div>
-        <div class="w-2/6">
-            <ul class="list-image-[url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzZW0iIGhlaWdodD0iM2VtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiM3Q0NGMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkuMTE2IDcuMTE2YTEuMjUgMS4yNSAwIDAgMSAxLjc2OCAwTDE1Ljc2OCAxMmwtNC44ODQgNC44ODRhMS4yNSAxLjI1IDAgMCAxLTEuNzY4LTEuNzY4TDEyLjIzMiAxMkw5LjExNiA4Ljg4NGExLjI1IDEuMjUgMCAwIDEgMC0xLjc2OCIgY2xpcC1ydWxlPSJldmVub2RkIi8+PC9zdmc+)] px-16 pt-12 -m-2 rounded-tl-4xl z-2">
-                <li :class="listStyle">
-                    <h4 :class="listTitle">NORMATIVA, REGULACIONES E INNOVACIONES TECNOLÓGICAS</h4>
-                </li>
+        <div class="w-2/6 bg-neutral-900 py-12 px-10 z-10">
+            <div class="flex flex-col">
+                <div :class="listStyle">
+                <Icon icon="mingcute:right-fill" width="1.2em" height="1.2em" style="color: #84cc16" />
+                <h4 :class="listTitle">Normativa, Regulaciones e Innovaciones Tecnológicas</h4>
+                </div>
                 <p :class="listText">Informamos acerca de la normativa vigente y transición tecnológica.</p>
-                <li :class="listStyle">
-                    <h4 :class="listTitle">ASISTENCIA EN LA SOLICITUD DE SUBVENCIONES</h4>
-                </li>
+
+                <div :class="listStyle">
+                <Icon icon="mingcute:right-fill" width="1.2em" height="1.2em" style="color: #84cc16" />
+                <h4 :class="listTitle">Asistencia en la Solicitud de Subvenciones</h4>
+                </div>
                 <p :class="listText">Te ayudamos y apoyamos en la tramitación de todas las ayudas disponibles.</p>
-                <li :class="listStyle">
-                    <h4 :class="listTitle">COMPROMISO CON SOLUCIONES PERSONALIZADAS</h4>
-                </li>
+
+                <div :class="listStyle">
+                <Icon icon="mingcute:right-fill" width="1.2em" height="1.2em" style="color: #84cc16" />
+                <h4 :class="listTitle">Compromiso con Soluciones Personalizadas</h4>
+                </div>
                 <p :class="listText">Nos implicamos y buscamos soluciones ad-hoc para cada cliente.</p>
-                <li :class="listStyle">
-                    <h4 :class="listTitle">ALIANZAS CON PARTNERS ESTRATÉGICOS</h4>
-                </li>
+
+                <div :class="listStyle">
+                <Icon icon="mingcute:right-fill" width="1.2em" height="1.2em" style="color: #84cc16" />
+                <h4 :class="listTitle">Alianzas con Partners Estratégicos</h4>
+                </div>
                 <p :class="listText">Contamos con socios y colaboradores de servicios adyacentes para completar los servicios que ofrecemos.</p>
-            </ul>
+            </div>
         </div>
     </section>
 </template>
