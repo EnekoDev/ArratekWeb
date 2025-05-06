@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <section id="asesoramiento-informatico" class="w-full h-screen flex gap-20">
+    <section id="asesoramiento-informatico" class="w-full h-screen flex">
         <div class="h-full w-4/5 text-white">
             <div class="relative h-full w-full">
                 <div class="absolute inset-0 h-full bg-cover bg-center bg-no-repeat bg-[url('/pexels-athena-2582936.jpg')] z-0 opacity-30"></div>
@@ -30,6 +30,7 @@
                                 Haber recorrido un camino similar, nos hace conocer muy de cerca los <span>retos</span> a los que te enfrentas y tener <span>experiencia</span> en cómo superarlos
                             </p>
                             <h4 class="text-2xl font-bold">¡NOS ENCANTA <span>ESCUCHAR</span> NUEVAS IDEAS DE <span>NEGOCIO</span>!</h4>
+                            <NuxtLink to="/#contacto"><button class="px-14 py-4 bg-lime-500 text-2xl text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out cursor-pointer hover:bg-white hover:text-lime-500 hover:shadow-lg hover:border-lime-500 hover:animate-pulse">Contacto</button></NuxtLink>
                         </div>
                     </div>
                 </div>

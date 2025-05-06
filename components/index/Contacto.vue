@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 	import ContactForm from '../ContactForm.vue';
-
 	const contactElement:string = "flex gap-4 items-center text-2xl text-white"
 </script>
 
 <template>
-	<section id="contacto" class="w-full h-screen">
-		<article class="w-full h-full flex justify-center items-center gap-12">
+	<section id="contacto" class="relative w-full h-full">
+		<div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 z-0 bg-[url('/pexels-field-engineer-147254-442150.jpg')]"></div>
+		<article class="relative w-full h-2/3 flex justify-center items-center">
 			<div class="w-1/2 flex flex-col justify-center items-center gap-12 p-12">
 				<h2 class="text-4xl text-white text-center">Si necesitas algo, estamos a tu disposición</h2>
 				<div :class="contactElement">
@@ -44,7 +44,7 @@
 				<ContactForm />
 			</div>
 		</article>
-		<article class="w-full h-1/3 flex justify-center items-center">
+		<article class="relative w-full h-1/3 flex justify-center items-center my-5">
 			<LeafletMap />
 		</article>
 	</section>

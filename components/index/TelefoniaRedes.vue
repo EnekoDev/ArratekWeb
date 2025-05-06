@@ -39,7 +39,7 @@
                         <div class="h-1/2" />
                         <div class="h-1/2 bg-white rounded-bl-4xl clip-diagonal" />
                     </div>
-                    <div class="h-4/6 bg-white flex flex-col justify-center items-center rounded-tl-4xl -mt-2">
+                    <div class="h-4/6 bg-white flex flex-col justify-center items-center rounded-l-4xl -mt-2 mb-4">
                         <ul class="text-xl font-semibold list-disc leading-10">
                             <li>Equipos de oficina</li>
                             <li>TPVs</li>

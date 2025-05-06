@@ -26,5 +26,6 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxt/ui',
     'nuxt-icon-tw',
+    '@nuxtjs/leaflet',
   ],
 })

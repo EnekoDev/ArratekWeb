@@ -10,8 +10,8 @@
 </script>
 
 <template>
-    <div class="w-full flex item-center flex-col">
-        <section class="w-full h-screen flex">
+    <div class="w-screen flex item-center flex-col">
+        <section class="w-screen h-screen flex">
             <div class="w-1/2 flex content-between pl-12 bg-cover bg-center bg-no-repeat bg-[url('/pexels-athena-2582932.jpg')]">
                 <article class="flex flex-col justify-between items-center py-8 pl-32 pr-18 text-white bg-gradient-to-t from-black/80 to-transparent">
                     <img src="/arratek-logo.png" alt="Arratek logo" class="h-60 w-60">
