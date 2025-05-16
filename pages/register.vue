@@ -4,6 +4,7 @@
         const form = formEvent.target as HTMLFormElement
         const formData = new FormData(form)
         console.log(Object.fromEntries(formData.entries()))
+        // TODO: add endpoint url to .env
         const res = await fetch('http://localhost:8000/api/register', {
             method: 'POST',
             body: JSON.stringify(Object.fromEntries(formData.entries())),

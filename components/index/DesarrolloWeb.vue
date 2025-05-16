@@ -12,7 +12,7 @@
 <template>
     <section id="desarrollo-web" class="w-full h-auto flex flex-col sm:flex-row">
         <!-- Left Section -->
-        <div class="w-full sm:w-1/2 h-auto relative">
+        <div class="w-full sm:w-1/2 h-auto py-4 relative">
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 z-0 bg-[url('/pexels-luis-gomes-166706-546819.jpg')]" />
             <div class="relative z-10 w-full h-full flex flex-col items-center justify-center px-6 sm:pr-32">
                 <div class="w-full flex flex-col items-center sm:items-end justify-center">
@@ -66,7 +66,7 @@
                 </div>
             </article>
             <article class="h-auto">
-                <div :class="cardDiv">
+                <div :class="cardDiv" class="flex-col-reverse sm:flex-col">
                     <div :class="cardImg">
                         <NuxtImg src="/pexels-djordje-petrovic-590080-2102416.jpg" alt="imagen desarrollo a medida" :class="cardImgItem" />
                     </div>

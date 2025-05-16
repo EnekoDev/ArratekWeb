@@ -1,13 +1,12 @@
 <script lang="ts" setup>
     import ContactForm from '../ContactForm.vue';
-    const contactElement: string = "flex flex-col sm:flex-row gap-4 items-start sm:items-center text-lg sm:text-2xl text-white";
+    const contactElement: string = "flex flex-col sm:flex-row gap-4 items-center text-lg sm:text-2xl text-white";
 </script>
 
 <template>
     <section id="contacto" class="relative w-full h-auto">
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 z-0 bg-[url('/pexels-field-engineer-147254-442150.jpg')]" />
-        <article class="relative w-full flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-0 py-8 sm:py-0">
-            <!-- Contact Information -->
+        <article class="relative w-full flex flex-col sm:flex-row justify-center items-center sm:gap-0 py-8 sm:py-0">
             <div class="w-full sm:w-1/2 flex flex-col justify-center items-center gap-8 p-6 sm:p-12">
                 <h2 class="text-2xl sm:text-4xl text-white text-center">Si necesitas algo, estamos a tu disposición</h2>
                 <div :class="contactElement">
@@ -41,15 +40,13 @@
                 </div>
             </div>
 
-            <!-- Contact Form -->
             <div class="w-full sm:w-1/2 flex flex-col justify-center items-center gap-8 p-6 sm:p-12">
                 <h2 class="text-2xl sm:text-4xl text-white text-center">Si tienes alguna sugerencia, no dudes en ponerte en contacto con nosotros</h2>
                 <ContactForm />
             </div>
         </article>
 
-        <!-- Map Section -->
-        <article class="relative w-full h-64 sm:h-1/3 flex justify-center items-center my-5">
+        <article class="relative w-full h-120 sm:h-1/3 flex justify-center items-center pb-12 sm:my-5 z-1">
             <LeafletMap />
         </article>
     </section>

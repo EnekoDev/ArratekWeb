@@ -11,11 +11,13 @@
 </script>
 
 <template>
-    <div class="min-h-screen w-full flex flex-col">
-        <header class="w-full flex justify-around items-center py-4 px-8 z-99 bg-zinc-400 shadow-md">
+    <div class="min-h-screen flex flex-col">
+        <header class="w-full flex justify-between items-center py-4 px-12 md:px-8 bg-zinc-400 shadow-md">
         <NuxtLink to="/"><NuxtImg src="/arratek-logo.png" alt="Arratek logo" class="h-20" /></NuxtLink>
             <div>
-                <button class="md:hidden" @click="toggleMenu">Mobile menu</button>
+                <button class="md:hidden text-white bg-lime-500 px-3 py-2 rounded-lg" @click="toggleMenu">
+                    {{ isMenuOpen ? 'Cerrar' : 'Menú' }}
+                </button>
                 <nav :class="{'hidden md:flex': !isMenuOpen, 'flex flex-col items-center absolute top-16 left-0 w-full bg-zinc-400 shadow-md md:relative md:w-auto md:bg-transparent md:shadow-none': isMenuOpen}">
                     <ul class="flex gap-4">
                         <li><NuxtLink to="/#contacto"><button :class="primaryNavBtn">Contacto</button></NuxtLink></li>

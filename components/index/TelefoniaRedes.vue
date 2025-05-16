@@ -4,8 +4,7 @@
 
 <template>
     <section id="telefonia-redes" class="w-full h-auto sm:h-screen flex flex-col sm:flex-row">
-        <!-- Left Section -->
-        <div class="relative w-full sm:w-1/2 h-auto sm:h-full pb-12">
+        <div class="relative w-full sm:w-1/2 h-auto sm:h-full py-8 pr-8 sm:pr-0 sm:py-4">
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 z-0 bg-[url('/pexels-vlad-1445510816-31862953.jpg')]" />
             <div class="h-1/3" />
             <div class="relative z-10 h-auto sm:h-2/3 w-full sm:w-5/6 bg-white rounded-r-4xl px-6 sm:pl-24 sm:pr-18 py-12 sm:py-24 opacity-90">
@@ -26,8 +25,7 @@
             </div>
         </div>
 
-        <!-- Right Section -->
-        <div class="w-full sm:w-1/2 h-auto sm:h-full flex flex-col gap-4 px-6 sm:pl-12 sm:pt-12">
+        <div class="w-full sm:w-1/2 h-auto sm:h-full flex flex-col sm:gap-4 pl-12 sm:pl-12 sm:pt-12">
             <div class="w-full h-auto sm:h-1/6 px-4 sm:pl-8 py-4 sm:py-8">
                 <hr class="w-full border-3 mb-4">
                 <h2 class="text-4xl sm:text-6xl text-lime-500 font-bold">SUMINISTRO</h2>

@@ -22,7 +22,7 @@
         window.removeEventListener('scroll', handleScroll)
     })
 
-    const btnClass = "fixed bottom-16 right-10 bg-white hover:bg-lime-500 py-4 px-5 rounded-full shadow-lg transition-all z-50 duration-300 ease-in-out cursor-pointer"
+    const btnClass = "fixed bottom-16 right-10 bg-white hover:bg-lime-500 py-2 px-3 rounded-full shadow-lg transition-all z-99 duration-300 ease-in-out cursor-pointer"
 </script>
 
 <template>
@@ -36,3 +36,7 @@
         </button>
     </div>
 </template>
+
+<style>
+
+</style>

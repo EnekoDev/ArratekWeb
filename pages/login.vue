@@ -4,6 +4,7 @@
         const form = formEvent.target as HTMLFormElement
         const formData = new FormData(form)
         console.log(Object.fromEntries(formData.entries()))
+        // TODO: add endpoint url to .env
         const res = await fetch('http://localhost:8000/api/login', {
             method: 'POST',
             body: JSON.stringify(Object.fromEntries(formData.entries())),
@@ -13,6 +14,23 @@
         })
         // TODO: add error messages
         if (res.ok) {
+            const cookie = useCookie('auth')
+            cookie.value = (await res.json()).token
+            if (formData.get('remember-me')) {
+                useCookie('auth', {
+                    maxAge: 60 * 60 * 24 * 7,
+                    httpOnly: true,
+                    secure: true,
+                    sameSite: 'strict'
+                })
+            } else {
+                useCookie('auth', {
+                    maxAge: 60 * 60 * 24,
+                    httpOnly: true,
+                    secure: true,
+                    sameSite: 'strict'
+                })
+            }
             return navigateTo('/dashboard')
         } else {
             console.error('Fallo')

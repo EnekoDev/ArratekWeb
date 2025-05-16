@@ -8,11 +8,16 @@
     function toggleMenu() {
         isMenuOpen.value = !isMenuOpen.value;
     }
+
+    function logout() {
+        const auth = useCookie('auth')
+        auth.value = null
+    }
 </script>
 
 <template>
     <div class="min-h-screen flex flex-col">
-        <header class="w-full flex justify-between items-center py-4 px-4 md:px-8 bg-zinc-400 shadow-md">
+        <header class="w-full flex justify-between items-center py-4 px-12 md:px-8 bg-zinc-400 shadow-md">
             <NuxtImg src="/arratek-logo.png" alt="Arratek logo" class="h-16 md:h-20" />
             <div>
                 <button class="md:hidden text-white bg-lime-500 px-3 py-2 rounded-lg" @click="toggleMenu">
@@ -22,7 +27,7 @@
                     <ul class="flex flex-col items-center md:flex-row gap-4 p-4 md:p-0">
                         <li><NuxtLink to="/nuevoTicket"><button :class="navBtn">Nuevo Ticket</button></NuxtLink></li>
                         <li><NuxtLink to="/perfil"><button :class="navBtn">Perfil</button></NuxtLink></li>
-                        <li><NuxtLink to="/"><button :class="navBtn">Logout</button></NuxtLink></li>
+                        <li><NuxtLink to="/"><button :class="navBtn" @click=logout>Logout</button></NuxtLink></li>
                     </ul>
                 </nav>
             </div>

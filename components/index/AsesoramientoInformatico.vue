@@ -22,7 +22,7 @@
                                 <h5 class="text-xl sm:text-3xl font-medium">no frene tu <span>negocio</span></h5>
                             </div>
                         </div>
-                        <div class="w-full sm:w-3/7 flex flex-col justify-center px-6 sm:px-12 gap-6 sm:gap-8">
+                        <div class="w-full sm:w-3/7 flex flex-col justify-center py-4 sm:py-2 px-6 sm:px-12 gap-6 sm:gap-8">
                             <h4 class="text-lg sm:text-xl font-bold text-lime-500">
                                 SOMOS REFERENCIA EN EL ACOMPAÑAMIENTO Y DESARROLLO DE NUEV@S EMPRENDEDOR@S OFRECIENDO EL APOYO TECNOLÓGICO QUE NECESITAN
                             </h4>

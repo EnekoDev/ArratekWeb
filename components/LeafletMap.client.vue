@@ -1,15 +1,10 @@
 <script lang="ts" setup>
-	import L from 'leaflet'
-	import { onMounted } from 'vue'
 
-	onMounted(() => {
-		console.log(L)
-	})
 </script>
 
 <template>
 	<LMap
-		style="height: 50vh; width: 60vw"
+		style="height: 50vh; width: 80vw;"
 		:zoom="18"
 		:center="[43.164118862229095, -2.7781245314141976]"
 		:use-global-leaflet="true"
@@ -25,11 +20,5 @@
 </template>
 
 <style>
-	html,
-	body,
-	#app {
-		height: 100%;
-		margin: 0;
-		padding: 0;
-	}
+
 </style>
