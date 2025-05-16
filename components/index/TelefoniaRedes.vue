@@ -3,44 +3,53 @@
 </script>
 
 <template>
-    <section id="telefonia-redes" class="w-full h-screen flex">
-        <div class="relative w-1/2 h-full pb-12">
-            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 z-0 bg-[url('/pexels-vlad-1445510816-31862953.jpg')]"></div>
+    <section id="telefonia-redes" class="w-full h-auto sm:h-screen flex flex-col sm:flex-row">
+        <!-- Left Section -->
+        <div class="relative w-full sm:w-1/2 h-auto sm:h-full pb-12">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 z-0 bg-[url('/pexels-vlad-1445510816-31862953.jpg')]" />
             <div class="h-1/3" />
-            <div class="relative z-10 h-2/3 w-5/6 bg-white rounded-r-4xl pl-24 pr-18 py-24 opacity-90">
+            <div class="relative z-10 h-auto sm:h-2/3 w-full sm:w-5/6 bg-white rounded-r-4xl px-6 sm:pl-24 sm:pr-18 py-12 sm:py-24 opacity-90">
                 <div class="flex flex-col justify-center gap-4 -mt-12">
-                    <img src="/icono-telefonia.png" alt="icono movil con redes" class="w-32 h-32 -m-4">
-                    <h2 class="text-lime-500 text-6xl font-bold">TELEFONÍA</h2>
-                    <div class="flex items-end text-lime-500 text-6xl font-bold">
+                    <NuxtImg src="/icono-telefonia.png" alt="icono movil con redes" class="w-24 h-24 sm:w-32 sm:h-32 -m-4" />
+                    <h2 class="text-lime-500 text-4xl sm:text-6xl font-bold">TELEFONÍA</h2>
+                    <div class="flex items-end text-lime-500 text-4xl sm:text-6xl font-bold">
                         <h3>&</h3>
                         <h2>REDES</h2>
                     </div>
-                    <h4 class="text-4xl font-medium">En <b>ARRATEK INFORMÁTICA</b> también ofrecemos soluciones de telefonía y redes para empresas</h4>
-                    <p class="text-3xl font-light">Trabajamos con diversos proveedores para ofrecerte las mejores opciones en centralitas y redes WiFi.</p>
+                    <h4 class="text-2xl sm:text-4xl font-medium text-center sm:text-left">
+                        En <b>ARRATEK INFORMÁTICA</b> también ofrecemos soluciones de telefonía y redes para empresas
+                    </h4>
+                    <p class="text-lg sm:text-3xl font-light text-center sm:text-left">
+                        Trabajamos con diversos proveedores para ofrecerte las mejores opciones en centralitas y redes WiFi.
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="w-1/2 h-full flex flex-col gap-4 pl-12 pt-12">
-            <div class="w-full h-1/6 pl-8 py-8">
+
+        <!-- Right Section -->
+        <div class="w-full sm:w-1/2 h-auto sm:h-full flex flex-col gap-4 px-6 sm:pl-12 sm:pt-12">
+            <div class="w-full h-auto sm:h-1/6 px-4 sm:pl-8 py-4 sm:py-8">
                 <hr class="w-full border-3 mb-4">
-                <h2 class="text-6xl text-lime-500 font-bold">SUMINISTRO</h2>
-                <div class="flex gap-4">
-                    <h3 class="text-3xl text-white">de</h3>
-                    <h2 class="text-6xl text-white font-bold">MATERIAL</h2>
+                <h2 class="text-4xl sm:text-6xl text-lime-500 font-bold">SUMINISTRO</h2>
+                <div class="flex gap-2 sm:gap-4">
+                    <h3 class="text-2xl sm:text-3xl text-white">de</h3>
+                    <h2 class="text-4xl sm:text-6xl text-white font-bold">MATERIAL</h2>
                 </div>
             </div>
-            <div class="h-full flex gap-8 pt-12">
-                <div class="w-1/2">
-                    <img src="/icono-discoduro.png" alt="icono disco duro">
-                    <h3 class="text-4xl text-white font-medium">Proveemos de una amplia gama de equipos y consumibles para tu oficina</h3>
+            <div class="h-auto sm:h-full flex flex-col sm:flex-row gap-8 pt-4 sm:pt-12">
+                <div class="w-full sm:w-1/2 flex flex-col items-center">
+                    <NuxtImg src="/icono-discoduro.png" alt="icono disco duro" class="w-20 sm:w-auto" />
+                    <h3 class="text-2xl sm:text-4xl text-white font-medium text-center sm:text-left">
+                        Proveemos de una amplia gama de equipos y consumibles para tu oficina
+                    </h3>
                 </div>
-                <div class="w-1/2 h-full">
+                <div class="w-full sm:w-1/2 h-auto sm:h-full">
                     <div class="h-2/6">
                         <div class="h-1/2" />
                         <div class="h-1/2 bg-white rounded-bl-4xl clip-diagonal" />
                     </div>
-                    <div class="h-4/6 bg-white flex flex-col justify-center items-center rounded-l-4xl -mt-2 mb-4">
-                        <ul class="text-xl font-semibold list-disc leading-10">
+                    <div class="h-auto sm:h-4/6 bg-white flex flex-col justify-center items-center rounded-l-4xl -mt-2 mb-4 px-4 sm:px-0">
+                        <ul class="text-base sm:text-xl font-semibold list-disc leading-8 sm:leading-10">
                             <li>Equipos de oficina</li>
                             <li>TPVs</li>
                             <li>Servidores</li>

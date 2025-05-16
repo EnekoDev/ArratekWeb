@@ -10,15 +10,16 @@
     }
 </script>
 
-    <template>
+<template>
     <div class="min-h-screen flex flex-col">
-
-        <header class="w-full flex justify-around items-center py-4 px-8 bg-zinc-400 shadow-md">
-            <img src="/arratek-logo.png" alt="Arratek logo" class="h-20">
+        <header class="w-full flex justify-between items-center py-4 px-4 md:px-8 bg-zinc-400 shadow-md">
+            <NuxtImg src="/arratek-logo.png" alt="Arratek logo" class="h-16 md:h-20" />
             <div>
-                <button class="md:hidden" @click="toggleMenu">Mobile menu</button>
+                <button class="md:hidden text-white bg-lime-500 px-3 py-2 rounded-lg" @click="toggleMenu">
+                    {{ isMenuOpen ? 'Cerrar' : 'Menú' }}
+                </button>
                 <nav :class="{'hidden md:flex': !isMenuOpen, 'flex flex-col items-center absolute top-16 left-0 w-full bg-zinc-400 shadow-md md:relative md:w-auto md:bg-transparent md:shadow-none': isMenuOpen}">
-                    <ul class="flex gap-4">
+                    <ul class="flex flex-col items-center md:flex-row gap-4 p-4 md:p-0">
                         <li><NuxtLink to="/nuevoTicket"><button :class="navBtn">Nuevo Ticket</button></NuxtLink></li>
                         <li><NuxtLink to="/perfil"><button :class="navBtn">Perfil</button></NuxtLink></li>
                         <li><NuxtLink to="/"><button :class="navBtn">Logout</button></NuxtLink></li>
@@ -27,7 +28,7 @@
             </div>
         </header>
 
-        <main id="main-content" class="flex-1 flex justify-center items-center p-4" >
+        <main id="main-content" class="flex-1 flex justify-center items-center p-4">
             <slot />
         </main>
 

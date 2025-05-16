@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    function handleSubmit(formEvent: Event) {
+    async function handleSubmit(formEvent: Event) {
         formEvent.preventDefault()
         const form = formEvent.target as HTMLFormElement
         const formData = new FormData(form)

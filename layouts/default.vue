@@ -10,12 +10,10 @@
     }
 </script>
 
-    <template>
-    <div class="min-h-screen flex flex-col">
-
-        <header
-        class="w-full flex justify-around items-center py-4 px-8 z-99 bg-zinc-400 shadow-md">
-        <NuxtLink to="/"><img src="/arratek-logo.png" alt="Arratek logo" class="h-20"></NuxtLink>
+<template>
+    <div class="min-h-screen w-full flex flex-col">
+        <header class="w-full flex justify-around items-center py-4 px-8 z-99 bg-zinc-400 shadow-md">
+        <NuxtLink to="/"><NuxtImg src="/arratek-logo.png" alt="Arratek logo" class="h-20" /></NuxtLink>
             <div>
                 <button class="md:hidden" @click="toggleMenu">Mobile menu</button>
                 <nav :class="{'hidden md:flex': !isMenuOpen, 'flex flex-col items-center absolute top-16 left-0 w-full bg-zinc-400 shadow-md md:relative md:w-auto md:bg-transparent md:shadow-none': isMenuOpen}">
