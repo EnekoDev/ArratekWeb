@@ -5,7 +5,7 @@
     import TelefoniaRedes from '../components/index/TelefoniaRedes.vue'
     import Contacto from '../components/index/Contacto.vue'
 
-    const listCard:string = "flex gap-2 flex-col"
+    const listCard:string = "flex gap-2"
     const listText:string = "text-lg sm:text-xl align-middle leading-relaxed"
 </script>
 
@@ -30,7 +30,7 @@
                     <p class="text-lg sm:text-xl text-center">páginas web | servicio técnico | subvenciones | software | telefonía</p>
                 </article>
             </div>
-            <div class="w-full xl:w-1/2 bg-white flex flex-col xl:flex-row items-center gap-8 sm:gap-12 px-4 pt-4 sm:pl-12 m-0">
+            <div class="w-full xl:w-1/2 bg-white flex flex-col xl:flex-row items-center gap-8 sm:gap-12 pt-4 sm:pl-12 m-0">
                 <article class="w-full xl:w-1/3 h-full flex flex-col justify-center text-center xl:text-left">
                     <h6 class="text-xl sm:text-2xl"><span>En ARRATEK somos tu <i>partner</i> de confianza</span></h6>
                     <hr class="w-1/2 sm:w-5/8 border-1 my-4 mx-auto xl:mx-0">
@@ -44,11 +44,11 @@
                     <div class="h-auto sm:h-5/7 bg-lime-500 px-8 sm:px-16 rounded-tl-4xl z-2">
                         <div class="px-2 sm:px-8 pt-4 pb-4 sm:-m-2 rounded-tl-4xl z-2">
                             <div :class="listCard">
-                                <Icon icon="mingcute:right-fill" width="2rem" height="1.5em" style="color: #fff" />
+                                <Icon icon="mingcute:right-fill" width="8rem" height="2em" style="color: #fff" />
                                 <h5 :class="listText">Nuestro catálogo de servicios abarca desde el <b>desarrollo y mantenimiento de páginas web</b> hasta la <b>implementación de soluciones tecnológicas</b> adaptadas a tu empresa.</h5>
                             </div>
                             <div :class="listCard">
-                                <Icon icon="mingcute:right-fill" width="2rem" height="1.5em" style="color: #fff" />
+                                <Icon icon="mingcute:right-fill" width="8rem" height="2em" style="color: #fff" />
                                 <h5 :class="listText">Buscamos <b>soluciones personalizadas</b>, en los ámbitos de <b>páginas web</b>, implementación de <b>soluciones software</b>, <b>soporte técnico</b> de sistemas y redes, y ofertas en el ámbito de la <b>telefonía empresarial</b>.</h5>
                             </div>
                         </div>
@@ -57,15 +57,15 @@
             </div>
         </section>
 
-        <AsesoramientoInformatico lazy />
+        <AsesoramientoInformatico hydrate-on-idle />
 
-        <Mantenimiento lazy />
+        <Mantenimiento hydrate-on-idle />
 
-        <DesarrolloWeb lazy />
+        <DesarrolloWeb hydrate-on-idle />
 
-        <TelefoniaRedes lazy />
+        <TelefoniaRedes hydrate-on-idle />
 
-        <Contacto lazy />
+        <Contacto />
     </div>
 </template>
 

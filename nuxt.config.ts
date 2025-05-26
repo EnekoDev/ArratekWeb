@@ -27,5 +27,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     'nuxt-icon-tw',
     '@nuxtjs/leaflet',
+    'shadcn-nuxt',
   ],
 })

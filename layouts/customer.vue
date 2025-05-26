@@ -25,7 +25,6 @@
                 </button>
                 <nav :class="{'hidden md:flex': !isMenuOpen, 'flex flex-col items-center absolute top-16 left-0 w-full bg-zinc-400 shadow-md md:relative md:w-auto md:bg-transparent md:shadow-none': isMenuOpen}">
                     <ul class="flex flex-col items-center md:flex-row gap-4 p-4 md:p-0">
-                        <li><NuxtLink to="/nuevoTicket"><button :class="navBtn">Nuevo Ticket</button></NuxtLink></li>
                         <li><NuxtLink to="/perfil"><button :class="navBtn">Perfil</button></NuxtLink></li>
                         <li><NuxtLink to="/"><button :class="navBtn" @click=logout>Logout</button></NuxtLink></li>
                     </ul>

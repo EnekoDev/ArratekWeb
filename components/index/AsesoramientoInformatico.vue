@@ -12,12 +12,14 @@
                 <div class="relative h-full z-10">
                     <div class="h-full flex flex-col sm:flex-row">
                         <div class="w-full sm:w-4/7 flex flex-col justify-center gap-6 sm:gap-8 px-6 sm:px-12">
-                            <div>
-                                <div class="flex items-center gap-2">
-                                    <h5 class="text-3xl sm:text-5xl">asesoramiento</h5>
-                                    <NuxtImg src="/icono-bocadillo.png" alt="icono bocadillo con exclamacion" />
+                            <div class="flex flex-col justify-center items-start">
+                                <div class="flex flex-col items-start sm:gap-8">
+                                    <div class="flex items-center gap-2">
+                                        <h5 class="text-3xl sm:text-5xl">asesoramiento</h5>
+                                        <NuxtImg src="/icono-bocadillo.png" alt="icono bocadillo con exclamacion" />
+                                    </div>
+                                    <h4 class="text-lime-500 text-4xl sm:text-6xl font-semibold pb-2 sm:pb-4 -mt-6 sm:-mt-12">INFORMÁTICO</h4>
                                 </div>
-                                <h4 class="text-lime-500 text-4xl sm:text-6xl font-semibold pb-2 sm:pb-4 -mt-6 sm:-mt-12">INFORMÁTICO</h4>
                                 <h5 class="text-xl sm:text-3xl font-medium pt-2 sm:pt-4">Que la <span>tecnología</span></h5>
                                 <h5 class="text-xl sm:text-3xl font-medium">no frene tu <span>negocio</span></h5>
                             </div>
@@ -30,7 +32,7 @@
                                 Haber recorrido un camino similar, nos hace conocer muy de cerca los <span>retos</span> a los que te enfrentas y tener <span>experiencia</span> en cómo superarlos
                             </p>
                             <h4 class="text-xl sm:text-2xl font-bold">¡NOS ENCANTA <span>ESCUCHAR</span> NUEVAS IDEAS DE <span>NEGOCIO</span>!</h4>
-                            <NuxtLink to="/#contacto">
+                            <NuxtLink to="/#contacto" class="w-full flex justify-center">
                                 <button class="px-10 sm:px-14 py-3 sm:py-4 bg-lime-500 text-lg sm:text-2xl text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out cursor-pointer hover:bg-white hover:text-lime-500 hover:shadow-lg hover:border-lime-500 hover:animate-pulse">
                                     Contacto
                                 </button>

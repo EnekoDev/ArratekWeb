@@ -5,13 +5,35 @@
     const btnClass = "w-full bg-lime-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-lime-600 hover:cursor-pointer transition duration-300"
     const sendingClass = "w-full bg-lime-600 text-white font-bold py-2 px-4 rounded-lg hover:cursor-wait opacity-90"
 
-    function handleSubmit(formEvent: Event) {
+    async function handleSubmit(formEvent: Event) {
         formEvent.preventDefault()
         btnSending.value = !btnSending.value
         const form = formEvent.target as HTMLFormElement
         const formData = new FormData(form)
-        console.log(Object.fromEntries(formData.entries()))
-        // TODO: finish function to send form as an email
+
+        try {
+            const res = await fetch('http://localhost:8000/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(formData.entries()))
+            })
+
+            if (res.ok) {
+                const data = await res.json()
+                console.log(data)
+                form.reset()
+            } else {
+                const errorData = await res.json()
+                console.error(errorData)
+                alert('Error al enviar el mensaje')
+            }
+
+        } catch (err:unknown) {
+            console.error(err)
+        }
+
         btnSending.value = !btnSending.value
     }
 </script>

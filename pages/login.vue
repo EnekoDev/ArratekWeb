@@ -1,4 +1,8 @@
 <script setup lang="ts">
+    definePageMeta({
+        middleware: 'auth'
+    })
+
     async function handleSubmit(formEvent: Event) {
         formEvent.preventDefault()
         const form = formEvent.target as HTMLFormElement
@@ -14,23 +18,22 @@
         })
         // TODO: add error messages
         if (res.ok) {
-            const cookie = useCookie('auth')
-            cookie.value = (await res.json()).token
-            if (formData.get('remember-me')) {
-                useCookie('auth', {
-                    maxAge: 60 * 60 * 24 * 7,
-                    httpOnly: true,
-                    secure: true,
-                    sameSite: 'strict'
-                })
-            } else {
-                useCookie('auth', {
-                    maxAge: 60 * 60 * 24,
-                    httpOnly: true,
-                    secure: true,
-                    sameSite: 'strict'
-                })
+            const data = await res.json()
+            const maxAge = formData.get('remember-me') ? (60 * 60 * 24 * 15) : (60 * 60 * 24)
+            const authCcookie = useCookie('auth')
+            const customerCookie = useCookie('customer')
+            const cookieOptions = {
+                httpOnly: true,
+                secure: true,
+                sameSite: 'strict' as const,
+                maxAge: maxAge
             }
+
+            authCcookie.value = data.token
+            customerCookie.value = data.customer_id
+            useCookie('auth', cookieOptions)
+            useCookie('customer', cookieOptions)
+
             return navigateTo('/dashboard')
         } else {
             console.error('Fallo')
@@ -73,7 +76,7 @@
                 </button>
             </form>
             <NuxtLink to="/register"><button class="bg-lime-500 px-4 py-2 border border-gray-300 rounded-lg text-white text-xl cursor-pointer mt-4 hover:text-lime-500 hover:bg-white hover:animate-pulse">Registrate</button></NuxtLink>
-            <NuxtLink to="/remember"><button class="text-white text-xl cursor-pointer mt-4 hover:text-lime-500">Recordar Contraseña</button></NuxtLink>
+            <NuxtLink to="/remember-pass"><button class="text-white text-xl cursor-pointer mt-4 hover:text-lime-500">Recordar Contraseña</button></NuxtLink>
         </section>
     </div>
 </template>

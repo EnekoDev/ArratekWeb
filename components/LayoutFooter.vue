@@ -20,7 +20,7 @@
             </div>
             <nav :class="footerItem">
                 <ul class="flex justify-center md:justify-start gap-2 md:gap-4">
-                    <li><NuxtLink to="https://www.instagram.com/arratekinformatika/"><button :class="navBtn"><Icon name="mdi:instagram" /></button></NuxtLink></li>
+                    <li><NuxtLink to="https://www.instagram.com/arratekinformatika/"><button :class="navBtn"><Icon name="mdi:instagram" role="instagram" title="Instagram"/></button></NuxtLink></li>
                 </ul>
             </nav>
         </div>

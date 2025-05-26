@@ -1,4 +1,8 @@
 <script setup lang="ts">
+    definePageMeta({
+        middleware: 'auth'
+    })
+
     async function handleSubmit(formEvent: Event) {
         formEvent.preventDefault()
         const form = formEvent.target as HTMLFormElement

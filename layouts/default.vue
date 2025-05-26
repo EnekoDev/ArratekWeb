@@ -20,7 +20,11 @@
                 </button>
                 <nav :class="{'hidden md:flex': !isMenuOpen, 'flex flex-col items-center absolute top-16 left-0 w-full bg-zinc-400 shadow-md md:relative md:w-auto md:bg-transparent md:shadow-none': isMenuOpen}">
                     <ul class="flex gap-4">
-                        <li><NuxtLink to="/#contacto"><button :class="primaryNavBtn">Contacto</button></NuxtLink></li>
+                        <li>
+                            <NuxtLink to="/#contacto">
+                                <button class="px-4 py-2 bg-white text-lime-500 font-semibold rounded-lg shadow-md transition duration-300 ease-in-out cursor-pointer hover:bg-lime-500 hover:text-white hover:shadow-lg hover:border-lime-500 hover:animate-pulse">Contacto</button>
+                            </NuxtLink>
+                        </li>
                         <li><NuxtLink to="/#asesoramiento-informatico"><button :class="primaryNavBtn">Asesoramiento Informático</button></NuxtLink></li>
                         <li><NuxtLink to="/#mantenimiento-web"><button :class="primaryNavBtn">Mantenimiento Web</button></NuxtLink></li>
                         <li><NuxtLink to="/#desarrollo-web"><button :class="primaryNavBtn">Desarrollo Web</button></NuxtLink></li>

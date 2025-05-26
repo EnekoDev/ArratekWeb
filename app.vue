@@ -17,7 +17,7 @@
 
 
 <template>
-    <div>
+    <div class="text-zinc-900">
         <NuxtLayout>
             <NuxtPage />
         </NuxtLayout>
