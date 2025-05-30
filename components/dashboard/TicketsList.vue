@@ -76,41 +76,43 @@
 </script>
 
 <template>
-    <article class="w-full flex flex-col items-center justify-center">
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead :class="tableHeaders">Nº Ticket</TableHead>
-                    <TableHead :class="tableHeaders">Titulo</TableHead>
-                    <TableHead :class="tableHeaders">Descripción</TableHead>
-                    <TableHead :class="tableHeaders">Respuesta</TableHead>
-                    <TableHead :class="tableHeaders">Fecha creacion</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody v-if="tickets.length > 0 && !loading">
-                <TableRow
-                    v-for="ticket in tickets"
-                    :key="ticket.id"
-                    as="tr"
-                    class="cursor-pointer hover:bg-zinc-200 transition-colors duration-300"
-                    @click="openDetail(ticket)"
-                >
-                    <TableCell>{{ticket.id}}</TableCell>
-                    <TableCell>{{ticket.title}}</TableCell>
-                    <TableCell class="max-w-xl truncate">{{ticket.description}}</TableCell>
-                    <TableCell class="max-w-xl truncate">{{ticket.answer}}</TableCell>
-                    <TableCell>{{ticket.created_at}}</TableCell>
-                </TableRow>
-            </TableBody>
-            <TableBody v-if="loading">
-                <TableCell :colspan="6" class="text-center p-32">Cargando...</TableCell>
-            </TableBody>
-            <TableBody v-if="tickets.length === 0 && !loading">
-                <TableCell :colspan="6" class="text-center p-32">No hay datos para mostrar</TableCell>
-            </TableBody>
-        </Table>
+    <article class="w-full flex flex-col items-center justify-center px-2 sm:px-0">
+        <div class="w-full overflow-x-auto">
+            <Table class="min-w-[600px] sm:min-w-0 w-full">
+                <TableHeader>
+                    <TableRow>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Nº Ticket</TableHead>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Titulo</TableHead>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Descripción</TableHead>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Respuesta</TableHead>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Fecha creacion</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody v-if="tickets.length > 0 && !loading">
+                    <TableRow
+                        v-for="ticket in tickets"
+                        :key="ticket.id"
+                        as="tr"
+                        class="cursor-pointer hover:bg-zinc-200 transition-colors duration-300"
+                        @click="openDetail(ticket)"
+                    >
+                        <TableCell class="truncate max-w-[100px] text-xs sm:text-base">{{ticket.id}}</TableCell>
+                        <TableCell class="truncate max-w-[120px] text-xs sm:text-base">{{ticket.title}}</TableCell>
+                        <TableCell class="truncate max-w-[140px] text-xs sm:text-base">{{ticket.description}}</TableCell>
+                        <TableCell class="truncate max-w-[140px] text-xs sm:text-base">{{ticket.answer}}</TableCell>
+                        <TableCell class="truncate max-w-[100px] text-xs sm:text-base">{{ticket.created_at}}</TableCell>
+                    </TableRow>
+                </TableBody>
+                <TableBody v-if="loading">
+                    <TableCell :colspan="6" class="text-center p-16 sm:p-32 text-xs sm:text-base">Cargando...</TableCell>
+                </TableBody>
+                <TableBody v-if="tickets.length === 0 && !loading">
+                    <TableCell :colspan="6" class="text-center p-16 sm:p-32 text-xs sm:text-base">No hay datos para mostrar</TableCell>
+                </TableBody>
+            </Table>
+        </div>
 
-        <Pagination v-if="totalTickets > 0" v-slot="{ page }" :items-per-page="perPage" :total="totalTickets" :default-page="1">
+        <Pagination v-if="totalTickets > 0" v-slot="{ page }" :items-per-page="perPage" :total="totalTickets" :default-page="1" class="mt-2">
             <PaginationContent v-slot="{ items }">
                 <template v-for="(item, index) in items" :key="index">
                     <PaginationItem
@@ -126,7 +128,7 @@
         <ElementDetail
             v-if="showDetail"
             :ticket="selectedTicket"
-			:invoice="null"
+            :invoice="null"
             @close="showDetail = false"
         />
     </article>

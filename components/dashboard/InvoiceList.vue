@@ -76,56 +76,58 @@
 </script>
 
 <template>
-    <article class="w-full flex flex-col items-center justify-center">
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead :class="tableHeaders">Nº Factura</TableHead>
-                    <TableHead :class="tableHeaders">Número</TableHead>
-                    <TableHead :class="tableHeaders">Fecha</TableHead>
-                    <TableHead :class="tableHeaders">Tiempo Total</TableHead>
-                    <TableHead :class="tableHeaders">Precio Total</TableHead>
-                    <TableHead :class="tableHeaders">IVA</TableHead>
-                    <TableHead :class="tableHeaders">Cliente</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody v-if="invoices.length > 0 && !loading">
-                <TableRow
-                    v-for="invoice in invoices"
-                    :key="invoice.id"
-                    as="tr"
-                    class="cursor-pointer hover:bg-zinc-200 transition-colors duration-300"
-                    @click="openDetail(invoice)"
-                >
-                    <TableCell>{{invoice.id}}</TableCell>
-                    <TableCell>{{invoice.number}}</TableCell>
-                    <TableCell>{{invoice.date}}</TableCell>
-                    <TableCell>{{invoice.total_time}}</TableCell>
-                    <TableCell>{{invoice.total_price}}</TableCell>
-                    <TableCell>{{invoice.tax}}</TableCell>
-                    <TableCell>{{invoice.customer_id}}</TableCell>
-                </TableRow>
-            </TableBody>
-            <TableBody v-if="loading">
-                <TableCell :colspan="7" class="text-center p-32">Cargando...</TableCell>
-            </TableBody>
-            <TableBody v-if="invoices.length === 0 && !loading">
-                <TableCell :colspan="7" class="text-center p-32">No hay datos para mostrar</TableCell>
-            </TableBody>
-        </Table>
+    <article class="w-full flex flex-col items-center justify-center px-2 sm:px-0">
+        <div class="w-full overflow-x-auto">
+            <Table class="min-w-[700px] sm:min-w-0 w-full">
+                <TableHeader>
+                    <TableRow>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Nº Factura</TableHead>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Número</TableHead>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Fecha</TableHead>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Tiempo Total</TableHead>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Precio Total</TableHead>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">IVA</TableHead>
+                        <TableHead :class="tableHeaders + ' text-xs sm:text-base'">Cliente</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody v-if="invoices.length > 0 && !loading">
+                    <TableRow
+                        v-for="invoice in invoices"
+                        :key="invoice.id"
+                        as="tr"
+                        class="cursor-pointer hover:bg-zinc-200 transition-colors duration-300"
+                        @click="openDetail(invoice)"
+                    >
+                        <TableCell class="truncate max-w-[80px] text-xs sm:text-base">{{invoice.id}}</TableCell>
+                        <TableCell class="truncate max-w-[100px] text-xs sm:text-base">{{invoice.number}}</TableCell>
+                        <TableCell class="truncate max-w-[100px] text-xs sm:text-base">{{invoice.date}}</TableCell>
+                        <TableCell class="truncate max-w-[100px] text-xs sm:text-base">{{invoice.total_time}}</TableCell>
+                        <TableCell class="truncate max-w-[100px] text-xs sm:text-base">{{invoice.total_price}}</TableCell>
+                        <TableCell class="truncate max-w-[80px] text-xs sm:text-base">{{invoice.tax}}</TableCell>
+                        <TableCell class="truncate max-w-[80px] text-xs sm:text-base">{{invoice.customer_id}}</TableCell>
+                    </TableRow>
+                </TableBody>
+                <TableBody v-if="loading">
+                    <TableCell :colspan="7" class="text-center p-16 sm:p-32 text-xs sm:text-base">Cargando...</TableCell>
+                </TableBody>
+                <TableBody v-if="invoices.length === 0 && !loading">
+                    <TableCell :colspan="7" class="text-center p-16 sm:p-32 text-xs sm:text-base">No hay datos para mostrar</TableCell>
+                </TableBody>
+            </Table>
+        </div>
 
-        <Pagination v-if="totalInvoices > 0" v-slot="{ page }" :items-per-page="perPage" :total="totalInvoices" :default-page="1">
-			<PaginationContent v-slot="{ items }">
-				<template v-for="(item, index) in items" :key="index">
-					<PaginationItem
-						v-if="item.type === 'page'" :value="item.value" :is-active="item.value === page"
-						class="cursor-pointer"
-						@click="currentPage = item.value - 1">
-						{{ item.value }}
-					</PaginationItem>
-				</template>
-			</PaginationContent>
-		</Pagination>
+        <Pagination v-if="totalInvoices > 0" v-slot="{ page }" :items-per-page="perPage" :total="totalInvoices" :default-page="1" class="mt-2">
+            <PaginationContent v-slot="{ items }">
+                <template v-for="(item, index) in items" :key="index">
+                    <PaginationItem
+                        v-if="item.type === 'page'" :value="item.value" :is-active="item.value === page"
+                        class="cursor-pointer"
+                        @click="currentPage = item.value - 1">
+                        {{ item.value }}
+                    </PaginationItem>
+                </template>
+            </PaginationContent>
+        </Pagination>
 
         <ElementDetail
             v-if="showDetail"
