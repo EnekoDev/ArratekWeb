@@ -5,7 +5,6 @@
 		formEvent.preventDefault()
         const form = formEvent.target as HTMLFormElement
         const formData = new FormData(form)
-        console.log(Object.fromEntries(formData.entries()))
 		const newTicket = {
             'title':formData.get('title') as string,
 			'description':formData.get('description') as string,

@@ -1,78 +1,78 @@
 <script lang="ts" setup>
-import { ref, watch, onBeforeMount } from 'vue'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Pagination, PaginationContent, PaginationItem } from '@/components/ui/pagination'
-import { TicketModel } from '~/model/Ticket'
-import ElementDetail from '~/components/dashboard/ElementDetail.vue'
+    import { ref, watch, onBeforeMount } from 'vue'
+    import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+    import { Pagination, PaginationContent, PaginationItem } from '@/components/ui/pagination'
+    import { TicketModel } from '~/model/Ticket'
+    import ElementDetail from '~/components/dashboard/ElementDetail.vue'
 
-const props = defineProps({
-    query: {
-        type: String,
-        required: true,
+    const props = defineProps({
+        query: {
+            type: String,
+            required: true,
+        }
+    })
+
+    const loading = ref(true)
+    const tickets = ref<TicketModel[]>([])
+    const perPage = ref(10)
+    const currentPage = ref(0)
+    const totalTickets = ref(0)
+
+    const showDetail = ref(false)
+    const selectedTicket = ref<TicketModel | null>(null)
+
+    function openDetail(ticket: TicketModel) {
+        selectedTicket.value = ticket
+        showDetail.value = true
     }
-})
 
-const loading = ref(true)
-const tickets = ref<TicketModel[]>([])
-const perPage = ref(10)
-const currentPage = ref(0)
-const totalTickets = ref(0)
+    watch(currentPage, (newPage) => {
+        loading.value = true
+        currentPage.value = newPage
+        fetchData()
+    })
 
-const showDetail = ref(false)
-const selectedTicket = ref<TicketModel | null>(null)
+    async function fetchData() {
+        await fetch(`http://localhost:8000/api/${props.query}?perPage=${perPage.value}&page=${currentPage.value}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${useCookie('auth').value}`,
+                    'Content-Type': 'application/json'
+                }
+            }).then((res) => res.json())
+            .then((items) => {
+                tickets.value = []
+                for (const ticket of items.data) {
+                    tickets.value.push(new TicketModel(
+                        ticket.id,
+                        ticket.title,
+                        ticket.description,
+                        ticket.answer ?? '',
+                        ticket.resolved_on,
+                        ticket.created_at,
+                        ticket.updated_at,
+                        ticket.invoice_id,
+                        ticket.customer_id
+                    ))
+                }
+                perPage.value = items.meta.perPage
+                currentPage.value = items.meta.page
+                totalTickets.value = items.meta.total
+            })
+            .catch((err) => {
+                console.error(err)
+            })
+            .finally(() => {
+                loading.value = false
+            })
+    }
 
-function openDetail(ticket: TicketModel) {
-    selectedTicket.value = ticket
-    showDetail.value = true
-}
+    onBeforeMount(() => {
+        fetchData()
+    })
 
-watch(currentPage, (newPage) => {
-    loading.value = true
-    currentPage.value = newPage
-    fetchData()
-})
-
-async function fetchData() {
-    await fetch(`http://localhost:8000/api/${props.query}?perPage=${perPage.value}&page=${currentPage.value}`,
-        {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${useCookie('auth').value}`,
-                'Content-Type': 'application/json'
-            }
-        }).then((res) => res.json())
-        .then((items) => {
-            tickets.value = []
-            for (const ticket of items.data) {
-                tickets.value.push(new TicketModel(
-                    ticket.id,
-                    ticket.title,
-                    ticket.description,
-                    ticket.answer ?? '',
-                    ticket.resolved_on,
-                    ticket.created_at,
-                    ticket.updated_at,
-                    ticket.invoice_id,
-                    ticket.customer_id
-                ))
-            }
-            perPage.value = items.meta.perPage
-            currentPage.value = items.meta.page
-            totalTickets.value = items.meta.total
-        })
-        .catch((err) => {
-            console.error(err)
-        })
-        .finally(() => {
-            loading.value = false
-        })
-}
-
-onBeforeMount(() => {
-    fetchData()
-})
-
-const tableHeaders = "text-zinc-900 font-semibold"
+    const tableHeaders = "text-zinc-900 font-semibold"
 </script>
 
 <template>

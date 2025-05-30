@@ -15,7 +15,7 @@
     })
 
     onBeforeMount(() => {
-        userAdmin.value = useCookie('admin')?.value === '1'
+        userAdmin.value = useCookie('admin')?.value ? true : false
         const customerCookie = useCookie('customer')?.value
         customerId.value = customerCookie ? Number(customerCookie) : 0
     })
@@ -44,7 +44,7 @@
                     <TicketsList query="tickets"/>
                 </TabsContent>
                 <TabsContent value="revisarFacturas" class="w-full">
-                    <InvoiceList />
+                    <InvoiceList :query="'invoices'"/>
                 </TabsContent>
             </Tabs>
             <!-- Customers Grid -->
@@ -61,7 +61,7 @@
                     <TicketsList :query="`customers/${customerId}/tickets`" />
                 </TabsContent>
                 <TabsContent value="revisarFacturas" class="w-full">
-                    <InvoiceList />
+                    <InvoiceList :query="`customers/${customerId}/invoices`"/>
                 </TabsContent>
             </Tabs>
         </section>
