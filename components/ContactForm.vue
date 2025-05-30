@@ -21,13 +21,10 @@
             })
 
             if (res.ok) {
-                const data = await res.json()
-                console.log(data)
+                console.log(await res.json())
                 form.reset()
             } else {
-                const errorData = await res.json()
-                console.error(errorData)
-                alert('Error al enviar el mensaje')
+                console.error(await res.json())
             }
 
         } catch (err:unknown) {

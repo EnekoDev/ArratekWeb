@@ -7,21 +7,43 @@
         formEvent.preventDefault()
         const form = formEvent.target as HTMLFormElement
         const formData = new FormData(form)
-        console.log(Object.fromEntries(formData.entries()))
+        const data = Object.fromEntries(formData.entries())
+        const customerData = {
+            'name':data.name,
+            'address':data.address,
+            'phone':data.phone
+        }
         // TODO: add endpoint url to .env
-        const res = await fetch('http://localhost:8000/api/register', {
+        const res = await fetch('http://localhost:8000/api/customer', {
             method: 'POST',
-            body: JSON.stringify(Object.fromEntries(formData.entries())),
+            body: JSON.stringify(customerData),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
         // TODO: add error messages
         if (res.ok) {
-            console.log('Entra')
+            const customerRes = await res.json()
+            console.log(customerRes)
+            const userData = {
+                'email':data.email,
+                'password':data.password,
+                'customer_id': customerRes.id
+            }
+            const res2 = await fetch('http://localhost:8000/api/register', {
+                method: 'POST',
+                body: JSON.stringify(userData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            if (res2.ok) {
+                return navigateTo('/login')
+            } else {
+                console.error("Res2", res2)
+            }
         } else {
-            console.error('Fallo')
-            console.log(res)
+            console.error("Res", res)
         }
     }
 </script>
@@ -30,13 +52,14 @@
     <div>
         <section class="flex flex-col items-center justify-center h-auto p-6">
             <form
-                action=""
-                method="POST"
-                class="w-full max-w-md bg-white shadow-md rounded-lg p-8"
-                @submit="handleSubmit">
+            action=""
+            method="POST"
+            class="w-full max-w-md bg-white shadow-md rounded-lg p-8"
+            @submit="handleSubmit">
+                <h3 class="mb-4 px-3 text-lg font-semibold">Crear Cuenta</h3>
                 <input
                     id="name"
-                    type="name"
+                    type="text"
                     name="name"
                     placeholder="Nombre"
                     class="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500"
@@ -46,6 +69,20 @@
                     type="email"
                     name="email"
                     placeholder="Email"
+                    class="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500"
+                    required>
+                <input
+                    id="address"
+                    type="text"
+                    name="address"
+                    placeholder="Direccion"
+                    class="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500"
+                    required>
+                <input
+                    id="phone"
+                    type="tel"
+                    name="phone"
+                    placeholder="Teléfono"
                     class="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500"
                     required>
                 <input

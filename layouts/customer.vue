@@ -12,6 +12,11 @@
     function logout() {
         const auth = useCookie('auth')
         auth.value = null
+        const admin = useCookie('admin')
+        admin.value = null
+        const customer = useCookie('customer')
+        customer.value = null
+        return navigateTo('/')
     }
 </script>
 

@@ -20,19 +20,22 @@
         if (res.ok) {
             const data = await res.json()
             const maxAge = formData.get('remember-me') ? (60 * 60 * 24 * 15) : (60 * 60 * 24)
-            const authCcookie = useCookie('auth')
-            const customerCookie = useCookie('customer')
             const cookieOptions = {
-                httpOnly: true,
-                secure: true,
+                secure: false,
                 sameSite: 'strict' as const,
                 maxAge: maxAge
             }
 
-            authCcookie.value = data.token
-            customerCookie.value = data.customer_id
-            useCookie('auth', cookieOptions)
-            useCookie('customer', cookieOptions)
+            const authCookie = useCookie('auth', cookieOptions)
+            authCookie.value = data.token
+
+            if (data.admin) {
+                const adminCookie = useCookie('admin', cookieOptions)
+                adminCookie.value = data.admin
+            } else {
+                const customerCookie = useCookie('customer', cookieOptions)
+                customerCookie.value = data.customer_id
+            }
 
             return navigateTo('/dashboard')
         } else {
@@ -45,10 +48,10 @@
     <div>
         <section class="flex flex-col items-center justify-center h-auto p-6">
             <form
-                action=""
                 method="POST"
                 class="w-full max-w-md bg-white shadow-md rounded-lg p-8"
                 @submit="handleSubmit">
+                <h3 class="mb-4 px-3 text-lg font-semibold">Iniciar Sesión</h3>
                 <input
                     id="email"
                     type="email"
