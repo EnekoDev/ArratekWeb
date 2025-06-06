@@ -34,7 +34,7 @@
                     <TabsTrigger value="revisarTickets" :class="tabsTrigger">Revisar Todos Tickets</TabsTrigger>
                     <TabsTrigger value="revisarFacturas" :class="tabsTrigger">Revisar Facturas</TabsTrigger>
                 </TabsList>
-                <TabsContent value="nuevaFactura">
+                <TabsContent value="nuevaFactura" class="w-full">
                     <NewInvoice />
                 </TabsContent>
                 <TabsContent value="revisarNewTickets" class="w-full">
@@ -54,7 +54,7 @@
                     <TabsTrigger value="revisarTickets" :class="tabsTrigger">Revisar Tickets</TabsTrigger>
                     <TabsTrigger value="revisarFacturas" :class="tabsTrigger">Revisar Facturas</TabsTrigger>
                 </TabsList>
-                <TabsContent value="nuevoTicket">
+                <TabsContent value="nuevoTicket" class="w-full">
                     <NewTicket />
                 </TabsContent>
                 <TabsContent value="revisarTickets" class="w-full">
