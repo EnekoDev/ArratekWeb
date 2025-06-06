@@ -18,8 +18,8 @@
                 <button class="md:hidden text-white bg-lime-500 px-3 py-2 rounded-lg" @click="toggleMenu">
                     {{ isMenuOpen ? 'Cerrar' : 'Menú' }}
                 </button>
-                <nav :class="{'hidden md:flex': !isMenuOpen, 'flex flex-col items-center absolute top-16 left-0 w-full bg-zinc-400 shadow-md md:relative md:w-auto md:bg-transparent md:shadow-none': isMenuOpen}">
-                    <ul class="flex gap-4">
+                <nav :class="{'hidden md:flex': !isMenuOpen, 'flex flex-col items-center absolute top-16 left-0 w-full bg-zinc-400 shadow-md md:relative md:w-auto md:bg-transparent md:shadow-none mt-10 pb-4': isMenuOpen}">
+                    <ul class="flex gap-4 flex-col md:flex-row md:items-center">
                         <li>
                             <NuxtLink to="/#contacto">
                                 <button class="px-4 py-2 bg-white text-lime-500 font-semibold rounded-lg shadow-md transition duration-300 ease-in-out cursor-pointer hover:bg-lime-500 hover:text-white hover:shadow-lg hover:border-lime-500 hover:animate-pulse">Contacto</button>

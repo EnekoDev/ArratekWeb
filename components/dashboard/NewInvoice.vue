@@ -81,7 +81,7 @@
             <input
                 type="submit"
                 value="Crear factura"
-                class="w-full sm:w-1/3 bg-lime-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-lime-600 transition-colors duration-200 cursor-pointer text-sm">
+                class="w-full sm:w-2/3 bg-lime-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-lime-600 transition-colors duration-200 cursor-pointer text-sm">
         </form>
     </div>
 </template>
